@@ -1325,35 +1325,58 @@ body {
     z-index: 10;
   }
   
-  /* Position the message at the top center of the scene */
-  .message {
-    position: absolute;
-    top: 2vmin; /* Adjust to move it down a bit if needed */
-    left: 50%;
+ /* Scene & Message Styles */
+.scene {
+  position: relative;
+  z-index: 10;
+}
+
+.message {
+  position: absolute;
+  top: 2vmin; /* Adjust as needed */
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #ff69b4; /* vivid pink */
+  text-shadow: 0.2vmin 0.2vmin 0.5vmin rgba(255, 105, 180, 0.7);
+  background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding: 1vmin 2vmin;
+  border-radius: 1vmin;
+  animation: fadeIn 2s ease-out forwards;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -5vmin);
+  }
+  100% {
+    opacity: 1;
     transform: translateX(-50%);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 2rem;
-    font-weight: bold;
-    color: #ff69b4; /* vivid pink */
-    text-shadow: 0.2vmin 0.2vmin 0.5vmin rgba(255, 105, 180, 0.7);
-    background: linear-gradient(45deg, #ff9a9e, #fad0c4);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    padding: 1vmin 2vmin;
-    border-radius: 1vmin;
-    animation: fadeIn 2s ease-out forwards;
   }
-  
-  /* Fade-in animation for the message */
-  @keyframes fadeIn {
-    0% {
-      opacity: 0;
-      transform: translate(-50%, -5vmin);
-    }
-    100% {
-      opacity: 1;
-      transform: translateX(-50%);
-    }
+}
+
+/* Responsive adjustments for mobile devices */
+@media (max-width: 768px) {
+  .message {
+    font-size: 1.5rem;   /* Reduce font size */
+    padding: 0.8vmin 1.5vmin; /* Adjust padding */
+    top: 3vmin;  /* Slightly adjust vertical positioning if needed */
   }
+}
+
+@media (max-width: 480px) {
+  .message {
+    font-size: 1.2rem;  /* Further reduce font size */
+    padding: 0.5vmin 1vmin; /* Further adjust padding */
+    top: 4vmin;
+  }
+}
+
   
   
